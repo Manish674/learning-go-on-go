@@ -1,4 +1,4 @@
-package model
+package models
 
 type Director struct {
 	Firstname string   `json:"firstname"`

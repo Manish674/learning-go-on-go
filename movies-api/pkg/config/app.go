@@ -8,11 +8,11 @@ import (
 	"log"
 )
 
-var movieCollection *mongo.Collection
-var actorCollection *mongo.Collection
-var directorCollection *mongo.Collection
+var MovieCollection *mongo.Collection
+var ActorCollection *mongo.Collection
+var DirectorCollection *mongo.Collection
 
-func connect() {
+func Connect() {
 	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI("mongodb://localhost:27017/"))
 	if err != nil {
 		log.Fatal(err)
@@ -20,9 +20,7 @@ func connect() {
 
 	fmt.Print("mongodb connection successful")
 
-	movieCollection = client.Database("moviesdb").Collection("movie")
-	actorCollection = client.Database("moviesdb").Collection("actor")
-	directorCollection = client.Database("moviesdb").Collection("Director")
-
-	fmt.Print("Collection is ready")
+	MovieCollection = client.Database("moviesdb").Collection("movie")
+	ActorCollection = client.Database("moviesdb").Collection("actor")
+	DirectorCollection = client.Database("moviesdb").Collection("Director")
 }
